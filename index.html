@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Student Count by Country</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <h1>Student Count by Country</h1>
+  <div class="container">
+    <h1>Student Count by Country</h1>
 
-  <table border="1">
-    <thead>
-      <tr>
-        <th>Country</th>
-        <th>Student Count</th>
-      </tr>
-    </thead>
-    <tbody id="studentTable"></tbody>
-  </table>
+    <div class="actions">
+      <button id="refreshBtn">Refresh</button>
+      <span id="statusText"></span>
+    </div>
 
-  <script>
-    async function fetchStudentData() {
-      const response = await fetch('/api/getStudentCount');
-      const data = await response.json();
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Student Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- rows inserted by JS -->
+      </tbody>
+    </table>
+  </div>
 
-      const tableBody = document.getElementById('studentTable');
-      tableBody.innerHTML = data.map(row =>
-        `<tr><td>${row.Country}</td><td>${row.StudentCount}</td></tr>`
-      ).join('');
-    }
-    fetchStudentData();
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
