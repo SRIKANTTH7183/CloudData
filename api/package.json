@@ -1,6 +1,7 @@
 {
-  "name": "student-count-api",
+  "name": "clouddata-api",
   "version": "1.0.0",
+  "private": true,
   "dependencies": {
     "mssql": "^10.0.0"
   }
